@@ -143,12 +143,12 @@
     <h2>CONTACT</h2>
     <p>
       Instagram: <a href="https://instagram.com/">@iktruhs</a><br />
-      Email: <a href="mailto:hello@iktruhs.com">hello@iktruhs.com</a>
+      Email: <a href="mailto:iktruhs@gmail.com">hello@iktruhs.com</a>
     </p>
   </section>
 
   <footer>
-    © 2026 iktruhs
+    © 2026 Yodskini Productions
   </footer>
 
 </body>
