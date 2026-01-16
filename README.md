@@ -109,9 +109,8 @@
 
   <!-- ABOUT -->
   <section>
-    <h2>ABOUT</h2>
+    <h2>Only One Nation.</h2>
     <p class="about">
-     Only One Nation.
     </p>
   </section>
 
