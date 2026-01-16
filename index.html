@@ -21,30 +21,32 @@
       color: #f2f2f2;
       text-align: center;
       min-height: 100vh;
-      padding-top: 220px; /* extra space for bigger logo */
+      padding-top: 140px; /* LESS space */
       overflow-x: hidden;
     }
 
-    /* Fixed top logo */
+    /* Fixed top logo container */
     .fixed-logo {
       position: fixed;
-      top: 20px;
+      top: -40px; /* push image UP */
       left: 50%;
       transform: translateX(-50%);
       z-index: 2000;
       cursor: pointer;
+      pointer-events: auto;
     }
 
     .fixed-logo img {
-      max-width: 360px; /* BIGGER */
+      max-width: 520px; /* MUCH BIGGER */
       width: 100%;
       height: auto;
       opacity: 0.95;
+      transform-origin: center top; /* anchor visual weight */
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .fixed-logo img:hover {
-      transform: scale(1.06);
+      transform: scale(1.04);
       opacity: 1;
     }
 
@@ -60,7 +62,7 @@
 
     /* Closing animation */
     body.closing #page {
-      transform: scale(0.8);
+      transform: scale(0.78);
       opacity: 0;
     }
 
@@ -112,5 +114,4 @@
 
 </body>
 </html>
-
 
