@@ -13,24 +13,6 @@
       scroll-behavior: smooth;
     }
 
-<script>
-  const music = document.getElementById("bg-music");
-
-  // Start muted (required for autoplay rules)
-  music.volume = 0.6;
-  music.muted = true;
-
-  // Try autoplay once user interacts
-  document.addEventListener("click", () => {
-    music.play().catch(() => {});
-  }, { once: true });
-
-  function togglePlay() {
-    if (music.paused) {
-      music.play();
-    } else {
-      music.pause();
-    }
   }
 
   function toggleMute() {
@@ -134,26 +116,6 @@
   z-index: 3000;
 }
 
-.music-controls button {
-  background: #0a0a0a;
-  color: #f2f2f2;
-  border: 2px solid #f2f2f2;
-  padding: 8px 12px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.music-controls button:hover {
-  background: #f2f2f2;
-  color: #0a0a0a;
-}
-
-    
-  </style>
-</head>
-
-<body id="top">
 
   <!-- Clickable fixed logo -->
   <div class="fixed-logo" onclick="resetPage()">
@@ -198,18 +160,6 @@
 <footer style="margin-top: 40px; margin-bottom: 30px; opacity: 0.7; font-size: 0.9rem;">
   © 2026 Yodskini Productions. All rights reserved.
 </footer>
-
-<!-- Background Music -->
-<audio id="bg-music" loop>
-  <source src="Dreamin Of The Past.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<!-- Music Controls -->
-<div class="music-controls">
-  <button onclick="togglePlay()">Play / Pause</button>
-  <button onclick="toggleMute()">Mute</button>
-</div>
 
 
 
