@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>iktruhs</title>
+  <title>yayod</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Favicon: 10-pointed star -->
@@ -33,7 +33,7 @@
 
     /* Header */
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       cursor: pointer;
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
@@ -43,12 +43,20 @@
       opacity: 1;
     }
 
+    /* Sub text under header */
+    .back-text {
+      margin-top: 0;
+      font-size: 0.95rem;
+      opacity: 0.75;
+    }
+
     form {
       display: flex;
       flex-direction: column;
       gap: 10px;
       width: 100%;
       max-width: 400px;
+      margin-top: 20px;
     }
 
     input, textarea, button {
@@ -88,7 +96,8 @@
 <body>
 
   <!-- Clickable Header -->
-  <h1 onclick="goBack()">iktruhs — Leave a Comment</h1>
+  <h1 onclick="goBack()">Yodskini Productions — Leave a Comment</h1>
+  <p class="back-text">Don't wanna say shit? Click the header asshole.</p>
 
   <!-- Comment Form -->
   <form action="https://formsubmit.co/iktruhs@gmail.com" method="POST" onsubmit="showConfirm()">
@@ -130,4 +139,3 @@
 
 </body>
 </html>
-
