@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>iktruhs</title>
+  <title>yayod</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Favicon: 10-pointed star -->
@@ -31,7 +31,10 @@
       text-align: center;
     }
 
-    h1 { margin-bottom: 20px; }
+    h1 {
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
 
     form {
       display: flex;
@@ -63,14 +66,25 @@
     button:hover {
       background: #e0e0e0;
     }
+
+    /* confirmation message */
+    .confirm {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #f2f2f2;
+      border-radius: 8px;
+    }
   </style>
 </head>
 
 <body>
-  <h1>Yodskini Productions — Leave a Comment</h1>
+
+  <!-- Clickable Header -->
+  <h1 onclick="goBack()">yodskini productions — Leave a Comment</h1>
 
   <!-- Comment Form -->
-  <form action="https://formsubmit.co/iktruhs@gmail.com" method="POST">
+  <form action="https://formsubmit.co/iktruhs@gmail.com" method="POST" onsubmit="showConfirm()">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <textarea name="message" rows="5" placeholder="Your Comment" required></textarea>
@@ -83,6 +97,23 @@
 
     <button type="submit">Send Comment</button>
   </form>
+
+  <!-- Confirmation -->
+  <div class="confirm" id="confirm">
+    Comment sent! Redirecting back...
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "https://iktruhs.github.io/";
+    }
+
+    function showConfirm() {
+      document.getElementById("confirm").style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
+
 
