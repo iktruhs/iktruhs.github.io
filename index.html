@@ -25,24 +25,13 @@
       overflow-x: hidden;
     }
 
-    /* Thin top bar */
-    .top-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 32px; /* thin */
-      background: #000;
-      z-index: 1000;
-    }
-
     /* Fixed top logo container */
     .fixed-logo {
       position: fixed;
       top: -40px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2000; /* above bar */
+      z-index: 2000;
       cursor: pointer;
     }
 
@@ -114,9 +103,6 @@
 
 <body id="top">
 
-  <!-- Black top bar -->
-  <div class="top-bar"></div>
-
   <!-- Clickable fixed logo -->
   <div class="fixed-logo" onclick="resetPage()">
     <img src="https://i.imgur.com/ZzvBYMX.png" alt="iktruhs logo">
@@ -133,7 +119,7 @@
 
     <a href="comments.html">Leave a Comment</a>
 
-    <!-- Contact -->
+    <!-- Contact section -->
     <div class="contact">
       <h2>contact</h2>
       <a href="mailto:iktruhs@gmail.com">iktruhs@gmail.com</a>
@@ -158,3 +144,4 @@
 
 </body>
 </html>
+
