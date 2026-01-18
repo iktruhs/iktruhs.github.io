@@ -9,24 +9,23 @@
       padding: 0;
       display: flex;
       justify-content: center;
-      align-items: center;
+      /* Changed from 'center' to 'flex-start' to move it to the top */
+      align-items: flex-start; 
       min-height: 100vh;
-      background-color: #0a0a0a; /* Matches your dark theme */
+      background-color: #0a0a0a;
       overflow: hidden;
     }
 
     .image-wrapper {
       width: 90%;
-      max-width: 800px; /* Limits the size on large screens */
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      max-width: 800px;
+      /* Add padding-top to control exactly how close to the top edge it is */
+      padding-top: 20px; 
     }
 
     .image-wrapper img {
       width: 100%;
       height: auto;
-      /* Prevents stretching and maintains proportions */
       object-fit: contain;
       display: block;
     }
