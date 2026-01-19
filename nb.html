@@ -8,26 +8,17 @@
     body {
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
       min-height: 100vh;
+
+      /* BACKGROUND IMAGE */
+      background-image: url("https://i.imgur.com/ZtnDPYC.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       background-color: #0a0a0a;
+
       overflow: hidden;
       font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .image-wrapper {
-      width: 90%;
-      max-width: 800px;
-      padding-top: 20px;
-    }
-
-    .image-wrapper img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
     }
 
     /* Clock styles */
@@ -47,10 +38,6 @@
 <body>
 
   <div class="clock" id="clock"></div>
-
-  <div class="image-wrapper">
-    <img src="https://i.imgur.com/BGBCbK8.png" alt="Featured Image">
-  </div>
 
   <script>
     const clockEl = document.getElementById("clock");
@@ -82,4 +69,3 @@
 
 </body>
 </html>
-
