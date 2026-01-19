@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VHS Player</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /* OUTER TV FRAME */
+  .vhs-frame {
+    padding: 28px;
+    background: #000;
+  }
+
+  /* CRT SCREEN */
+  .vhs-screen {
+    position: relative;
+    width: 90vw;
+    max-width: 720px;
+    aspect-ratio: 4 / 3;
+    background: #000;
+    border-radius: 24px;
+    overflow: hidden;
+
+    transform: perspective(1200px) scale(1.01);
+
+    box-shadow:
+      inset 0 0 90px rgba(0,0,0,0.9),
+      0 0 60px rgba(255,255,255,0.06);
+
+    animation: flicker 0.15s infinite;
+    filter: blur(0.2px) contrast(1.05) saturate(1.1);
+  }
+
+  /* VIDEO */
+  .vhs-screen video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* VIGNETTE */
+  .vhs-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0.05) 0%,
+      rgba(0,0,0,0.65) 70%,
+      rgba(0,0,0,0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  /* SCANLINES */
+  .vhs-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.02) 1px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 3px
+    );
+    pointer-events: none;
+    z-index: 4;
+    mix-blend-mode: overlay;
+  }
+
+  @keyframes flicker {
+    0% { opacity: 0.96; }
+    50% { opacity: 1; }
+    100% { opacity: 0.97; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="vhs-frame">
+  <div class="vhs-screen">
+
+    <video
+      src="PUT_YOUR_DIRECT_MP4_LINK_HERE.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
+    ></video>
+
+  </div>
+</div>
+
+</body>
+</html>
