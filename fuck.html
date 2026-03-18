@@ -1,4 +1,3 @@
-add it to the code i provided.                                                                                                             <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,158 +12,169 @@ add it to the code i provided.                                                  
     </svg>">
 
   <style>
-    html { scroll-behavior: smooth; }
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-    cursor: url("cursor.cur"), auto;
+    * {
+      box-sizing: border-box;
+    }
+
+    html { 
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      background: #000;
-      font-family: Verdana, Geneva, sans-serif;
-      font-weight: 700;
+      background: #b0b0b0;
+      font-family: 'Geneva', 'Chicago', Verdana, sans-serif;
+      font-size: 12px;
+      font-weight: normal;
       display: flex;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
+      padding: 20px;
+      color: #000;
     }
 
-    /* CRT FRAME */
-    .crt-frame {
-      padding: 28px;
+    /* MAC WINDOW CONTAINER */
+    .mac-window {
       width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    /* CRT SCREEN */
-    .crt-screen {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      background: #0a0a0a;
-      border-radius: 22px;
-      overflow: hidden;
-
-      transform: perspective(1200px) scale(1.01);
-
-      box-shadow:
-        inset 0 0 80px rgba(0,0,0,0.85),
-        0 0 60px rgba(255,255,255,0.05);
-
-      animation: flicker 0.15s infinite;
-      filter: blur(0.15px) contrast(1.05) saturate(1.1);
-    }
-
-    /* VIGNETTE */
-    .crt-screen::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        ellipse at center,
-        rgba(255,255,255,0.04) 0%,
-        rgba(0,0,0,0.6) 70%,
-        rgba(0,0,0,0.95) 100%
-      );
-      pointer-events: none;
-      z-index: 4;
-    }
-
-    /* SCANLINES */
-    .crt-screen::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.02),
-        rgba(255,255,255,0.02) 1px,
-        rgba(0,0,0,0.02) 2px,
-        rgba(0,0,0,0.02) 3px
-      );
-      pointer-events: none;
-      z-index: 5;
-      mix-blend-mode: overlay;
-    }
-
-    @keyframes flicker {
-      0% { opacity: 0.96; }
-      50% { opacity: 1; }
-      100% { opacity: 0.97; }
-    }
-
-    /* ORIGINAL SITE STYLES */
-    .site {
-      color: #f2f2f2;
-      text-align: center;
-      min-height: 100vh;
-      padding-top: 140px;
-      overflow-x: hidden;
+      max-width: 620px;
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #dfdfdf #808080 #808080 #dfdfdf;
+      box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #404040;
       display: flex;
       flex-direction: column;
-      position: relative;
-      z-index: 2;
+      max-height: 90vh;
+      overflow: hidden;
     }
 
-    .fixed-logo {
-      position: fixed;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2000;
-      cursor: pointer;
+    /* TITLE BAR */
+    .title-bar {
+      background: linear-gradient(90deg, #000080 0%, #1084d7 100%);
+      color: white;
+      padding: 2px 2px 2px 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      font-size: 11px;
+      user-select: none;
+      border-bottom: 1px solid #dfdfdf;
     }
 
-    .fixed-logo img {
-      max-width: 400px;
-      width: 100%;
-      opacity: 0.95;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    .fixed-logo img:hover {
-      transform: scale(1.04);
-      opacity: 1;
-    }
-
-    #page {
+    .title-text {
       flex: 1;
+      text-align: center;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 2px;
+      margin-right: 2px;
+    }
+
+    .window-btn {
+      width: 16px;
+      height: 14px;
+      background: #c0c0c0;
+      border: 1px solid;
+      border-color: #dfdfdf #404040 #404040 #dfdfdf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .window-btn:active {
+      border-color: #404040 #dfdfdf #dfdfdf #404040;
+    }
+
+    /* CONTENT AREA */
+    .mac-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      background: #c0c0c0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
-      transition: transform 0.6s ease, opacity 0.6s ease;
+      gap: 16px;
     }
 
-    body.closing #page {
-      transform: scale(0.78);
-      opacity: 0;
+    .mac-content::-webkit-scrollbar {
+      width: 16px;
     }
 
+    .mac-content::-webkit-scrollbar-track {
+      background: #c0c0c0;
+      border: 1px solid;
+      border-color: #dfdfdf #404040 #404040 #dfdfdf;
+    }
+
+    .mac-content::-webkit-scrollbar-thumb {
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #dfdfdf #404040 #404040 #dfdfdf;
+    }
+
+    /* TEXT STYLING */
+    h1 {
+      font-size: 14px;
+      font-weight: bold;
+      margin: 8px 0;
+      text-align: center;
+      color: #000;
+    }
+
+    p {
+      font-size: 12px;
+      margin: 4px 0;
+      text-align: center;
+      max-width: 500px;
+    }
+
+    /* IMAGE CONTAINER */
     .choice-section {
       position: relative;
       width: 100%;
-      max-width: 600px;
-      margin: 40px auto 80px;
+      max-width: 400px;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 12px 0;
     }
 
     .background-main {
       width: 100%;
       height: auto;
       display: block;
+      border: 2px solid;
+      border-color: #dfdfdf #404040 #404040 #dfdfdf;
+      padding: 4px;
+      background: #c0c0c0;
     }
 
     .palm-link {
       position: absolute;
-      transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275),
-                  filter 0.3s ease;
-      z-index: 10;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
     }
 
-    .left-palm { top: 40%; left: 21%; width: 18%; }
-    .right-palm { top: 32%; right: 21%; width: 14%; }
+    .palm-link:hover {
+      border: 2px solid #000080;
+      filter: brightness(1.1);
+    }
+
+    .left-palm { top: 40%; left: 8%; width: 16%; }
+    .right-palm { top: 32%; right: 8%; width: 12%; }
 
     .palm-link img {
       width: 100%;
@@ -172,55 +182,125 @@ add it to the code i provided.                                                  
       display: block;
     }
 
-    .palm-link:hover {
-      transform: scale(1.3) translateY(-10px);
-      filter: brightness(1.2) drop-shadow(0 0 15px rgba(255,255,255,0.5));
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      margin: 8px 0;
     }
 
-    .clock {
-      position: absolute;
-      bottom: -48px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 12px;
-      color: #bdbdbd;
-      letter-spacing: 0.6px;
-      line-height: 1.3;
-      opacity: 0.8;
-      z-index: 15;
-    }
-
-    a {
-      color: #f2f2f2;
+    a.mac-button, button {
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #dfdfdf #404040 #404040 #dfdfdf;
+      color: #000;
+      padding: 3px 12px;
+      font-family: 'Geneva', 'Chicago', Verdana, sans-serif;
+      font-size: 11px;
       font-weight: bold;
       text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      min-height: 18px;
+      transition: all 0.1s ease;
     }
 
-    a:hover {
-      color: #ffcc00;
-      text-decoration: underline;
+    a.mac-button:hover, button:hover {
+      background: #d0d0d0;
     }
 
+    a.mac-button:active, button:active {
+      border-color: #404040 #dfdfdf #dfdfdf #404040;
+      box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #404040;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 90%;
+      height: 2px;
+      background: #dfdfdf;
+      border-bottom: 1px solid #808080;
+      margin: 8px 0;
+    }
+
+    /* CLOCK */
+    .clock {
+      font-size: 10px;
+      color: #404040;
+      letter-spacing: 0.5px;
+      text-align: center;
+      font-family: 'VT323', monospace;
+      line-height: 1.4;
+      margin: 4px 0;
+    }
+
+    /* FOOTER */
     footer {
-      padding: 20px 0;
-      opacity: 0.7;
-      font-size: 0.85rem;
+      padding: 8px;
+      font-size: 10px;
+      text-align: center;
+      color: #404040;
+      border-top: 1px solid #dfdfdf;
+      background: #c0c0c0;
+    }
+
+    /* DISK ICON */
+    .disk-icon {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin: 0 auto;
+      background: #c0c0c0;
+      border: 1px solid;
+      border-color: #dfdfdf #404040 #404040 #dfdfdf;
+      padding: 2px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: bold;
+      line-height: 30px;
+      margin-bottom: 8px;
+    }
+
+    /* ANIMATION */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .blink {
+      animation: pulse 1s infinite;
     }
   </style>
 </head>
 
 <body>
 
-<div class="crt-frame">
-<div class="crt-screen">
-<div class="site">
-
-  <div class="fixed-logo" onclick="resetPage()">
-    <img src="https://i.imgur.com/ZzvBYMX.png">
+<div class="mac-window">
+  
+  <!-- TITLE BAR -->
+  <div class="title-bar">
+    <span class="title-text">yp - choice</span>
+    <div class="window-controls">
+      <div class="window-btn">−</div>
+      <div class="window-btn">□</div>
+      <div class="window-btn">✕</div>
+    </div>
   </div>
 
-  <div id="page">
-    <h1>yodskini productions — it works</h1>
+  <!-- CONTENT -->
+  <div class="mac-content">
+
+    <div class="disk-icon">💾</div>
+
+    <h1>yodskini productions</h1>
+    <p>~ it works ~</p>
+
+    <div class="divider"></div>
 
     <div class="choice-section">
       <img src="https://i.imgur.com/RBaOvBU_d.png" class="background-main">
@@ -232,35 +312,41 @@ add it to the code i provided.                                                  
       <a href="irs.html" class="palm-link right-palm">
         <img src="https://i.imgur.com/0Rkj7LJ_d.png">
       </a>
-
-      <div class="clock" id="clock"></div>
     </div>
+
+    <div class="divider"></div>
+
+    <div class="clock" id="clock"></div>
+
+    <div class="divider"></div>
 
     <h1>Fuck You Timothee Chalamet.</h1>
     <h1>I Hope You Have A Very Bad Day.</h1>
 
-    <a href="comments.html">Leave a Comment</a>
-    <a href="hatelist.html">Hate List</a>
+    <div class="divider"></div>
+
+    <div class="button-group">
+      <a href="comments.html" class="mac-button">Leave a Comment</a>
+      <a href="hatelist.html" class="mac-button">Hate List</a>
+    </div>
+
+    <footer>© 2026 Yodskini Productions</footer>
+
   </div>
 
-  <footer>© 2026 Yodskini Productions.</footer>
-
-</div>
-</div>
 </div>
 
 <script>
-  function resetPage() {
-    document.body.classList.add("closing");
-    setTimeout(() => window.scrollTo(0, 0), 300);
-    setTimeout(() => document.body.classList.remove("closing"), 600);
-  }
-
   const clock = document.getElementById("clock");
 
   function updateClock() {
     const now = new Date();
-    const date = now.toLocaleDateString("en-US");
+    const date = now.toLocaleDateString("en-US", {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
     const time = now.toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "2-digit",
@@ -272,6 +358,13 @@ add it to the code i provided.                                                  
 
   updateClock();
   setInterval(updateClock, 1000);
+
+  // Window button interactions
+  document.querySelectorAll(".window-btn").forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      if (index === 2) window.close();
+    });
+  });
 </script>
 
 </body>
